@@ -1,12 +1,10 @@
-/** @jsx jsx */
-import { jsx } from '@emotion/core';
-
-import { FlexContainer } from '@/styles';
+import { Button } from 'antd';
+import React from 'react';
 
 import { LayoutProps } from './types';
 
 const FullSizeLayout = ({ children }: LayoutProps) => {
-  return <FlexContainer>{children}</FlexContainer>;
+  return <Button type="primary">test</Button>;
 };
 
 export default FullSizeLayout;

@@ -3,9 +3,6 @@ const resolve = arg => path.resolve(__dirname, arg);
 
 module.exports = function () {
   return {
-    babel: {
-      plugins: ['emotion'],
-    },
     webpack: {
       alias: {
         '@': resolve('src'),
