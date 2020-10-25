@@ -1,10 +1,16 @@
-import { Button } from 'antd';
+import { Row } from 'antd';
 import React from 'react';
 
 import { LayoutProps } from './types';
 
+const FullSizeLayoutStyle = { height: '100vh' };
+
 const FullSizeLayout = ({ children }: LayoutProps) => {
-  return <Button type="primary">test</Button>;
+  return (
+    <Row style={FullSizeLayoutStyle} justify="center" align="middle">
+      {children}
+    </Row>
+  );
 };
 
 export default FullSizeLayout;

@@ -10,7 +10,7 @@ const App = () => {
       <Switch>
         <FullSizeLayout>
           <Switch>
-            <Route exact path="/add-schedule" component={Pages.AddSchedule} />
+            <Route exact path="/login" component={Pages.Login} />
             <Route component={Pages.NotFound} />
           </Switch>
         </FullSizeLayout>
