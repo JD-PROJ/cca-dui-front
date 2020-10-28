@@ -7,9 +7,8 @@ import { fetchKakaoAccessToken } from '@/features/authentication';
 
 const KAKAO_OAUTH_URI = 'https://kauth.kakao.com/oauth';
 
-//FIXME: Move to env
-const REDIRECT_URI = 'http://localhost:3000/login';
-const CLIENT_ID = '';
+const REDIRECT_URI = process.env.REACT_APP_KAKAO_REDIRECT_URI;
+const KAKAO_REST_API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
 
 const useKakaoAuthorization = () => {
   const [code, setCode] = useState('');
@@ -34,7 +33,7 @@ const useKakaoAuthorization = () => {
   const openKaKaoAuthorization = useCallback(() => {
     window.open(
       `${KAKAO_OAUTH_URI}/authorize?${queryString.stringify({
-        client_id: CLIENT_ID,
+        client_id: KAKAO_REST_API_KEY,
         redirect_uri: REDIRECT_URI,
         response_type: 'code',
       })}`,

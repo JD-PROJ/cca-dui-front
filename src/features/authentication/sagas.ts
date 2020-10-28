@@ -8,9 +8,8 @@ import { createFetchSagaWorker } from '../helper';
 
 const KAKAO_OAUTH_URI = 'https://kauth.kakao.com/oauth';
 
-//FIXME: Move to env
-const REDIRECT_URI = 'http://localhost:3000/login';
-const CLIENT_ID = '';
+const REDIRECT_URI = process.env.REACT_APP_KAKAO_REDIRECT_URI;
+const KAKAO_REST_API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
 
 const fetchKakaoAccessTokenSagaWorker = createFetchSagaWorker(
   fetchKakaoAccessToken,
@@ -20,7 +19,7 @@ const fetchKakaoAccessTokenSagaWorker = createFetchSagaWorker(
       `${KAKAO_OAUTH_URI}/token`,
       queryString.stringify({
         grant_type: 'authorization_code',
-        client_id: CLIENT_ID,
+        client_id: KAKAO_REST_API_KEY,
         redirect_uri: REDIRECT_URI,
         code,
       }),
