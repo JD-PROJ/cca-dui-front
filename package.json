@@ -5,6 +5,8 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.4.0",
     "antd": "^4.7.2",
+    "axios": "^0.21.0",
+    "query-string": "^6.13.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",

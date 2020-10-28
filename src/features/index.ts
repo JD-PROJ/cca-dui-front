@@ -3,10 +3,13 @@ import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
 
-const rootReducer = combineReducers({});
+import authenticationReducer from './authentication';
+import { authenticationSaga } from './authentication/sagas';
+
+const rootReducer = combineReducers({ authentication: authenticationReducer });
 
 function* rootSaga() {
-  yield all([]);
+  yield all([authenticationSaga()]);
 }
 const sagaMiddleware = createSagaMiddleware();
 
