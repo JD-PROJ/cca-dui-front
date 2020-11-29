@@ -1,7 +1,10 @@
-import { fork, take } from 'redux-saga/effects';
+import { fork, put, take } from 'redux-saga/effects';
 
 import { getKaKaoAccessToken } from '@/apis/authentication';
-import { fetchKakaoAccessToken } from '@/features/authentication';
+import {
+  fetchKakaoAccessToken,
+  setAuthenticated,
+} from '@/features/authentication';
 
 import { createFetchSagaWorker } from '../helper';
 
@@ -17,6 +20,7 @@ function* AuthenticationSagaFlow() {
     const res = yield take(fetchKakaoAccessToken.success.type);
     //TODO: login api connect
     console.log(res);
+    yield put(setAuthenticated(true));
   }
 }
 

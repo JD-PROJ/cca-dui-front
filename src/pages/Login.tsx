@@ -1,10 +1,16 @@
 import { Button, Col } from 'antd';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
+import { selectAuthenticated } from '@/features/authentication';
 import useKakaoAuthorization from '@/hooks/useKakaoAuthorization';
 
 const Login = () => {
+  const authenticated = useSelector(selectAuthenticated);
   const { openKaKaoAuthorization } = useKakaoAuthorization();
+
+  if (authenticated) return <Redirect to="/" />;
 
   return (
     <Col span={6}>

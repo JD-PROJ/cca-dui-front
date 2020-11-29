@@ -10,7 +10,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({
   ...rest
 }) => {
   return (
-    <>{isAuthenticated ? <Route {...rest} /> : <Redirect to="/adsad" />}</>
+    <>{isAuthenticated ? <Route {...rest} /> : <Redirect to="/login" />}</>
   );
 };
 
