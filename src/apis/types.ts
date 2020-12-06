@@ -4,7 +4,7 @@ export interface IApiSuccessMessage {
   status: string;
 }
 
-interface IApiError {
+export interface IApiError {
   status: string;
   statusCode: number;
   message: string;
@@ -22,4 +22,8 @@ export class ApiError implements IApiError {
       this.message = err.response.data.errorMessage;
     }
   }
+}
+
+export interface IKakaoAccessToken extends IApiSuccessMessage {
+  result: string;
 }

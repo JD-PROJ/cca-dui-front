@@ -11,12 +11,16 @@ import KaKaoLabel from './kakao.png';
 const LoginPageWrapper = styled('div', {
   display: 'flex',
   flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '90%',
 });
 
 const KaKaoImage = styled('img', {
   width: 16,
   height: 16,
 });
+
 const KaKaoLoginButton = styled('button', {
   backgroundColor: '#FEE500',
   borderRadius: '$pill',
@@ -28,6 +32,17 @@ const KaKaoLoginButton = styled('button', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  margin: '$3',
+});
+
+const CcaduiTitle = styled('p', {
+  fontSize: 40,
+  fontWeight: 700,
+  background:
+    'linear-gradient(60deg, rgba(33,37,41,1) 0%, rgba(255,51,51,1) 100%)',
+  WebkitTextFillColor: 'transparent',
+  WebkitBackgroundClip: 'text',
+  marginBottom: '$3',
 });
 
 const KaKaoLoginText = styled('p', {
@@ -43,6 +58,7 @@ const Login = () => {
 
   return (
     <LoginPageWrapper>
+      <CcaduiTitle>CCADUI</CcaduiTitle>
       <KaKaoLoginButton onClick={openKaKaoAuthorization}>
         <KaKaoImage src={KaKaoLabel} />
         <KaKaoLoginText>카카오 로그인</KaKaoLoginText>

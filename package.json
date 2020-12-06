@@ -15,6 +15,7 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
@@ -63,6 +64,7 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "source-map-explorer": "^2.5.1"
   }
 }
