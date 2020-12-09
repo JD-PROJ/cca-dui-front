@@ -3,6 +3,7 @@ import queryString from 'query-string';
 
 import { ApiError, IKakaoAccessToken } from './types';
 
+const SERVICE_URI = 'https://localhost:8000';
 const KAKAO_OAUTH_URI = 'https://kauth.kakao.com/oauth';
 
 const REDIRECT_URI = process.env.REACT_APP_KAKAO_REDIRECT_URI;
@@ -24,6 +25,14 @@ export const getKakaoAccessToken = (code: string) => {
         },
       },
     )
+      .then((response: AxiosResponse) => resolve(response.data))
+      .catch((err: AxiosError) => reject(new ApiError(err)));
+  });
+};
+
+export const getUserJWT = () => {
+  return new Promise((resolve, reject) => {
+    Axios.get(`${SERVICE_URI}/api/kakao/login${queryString.stringify({})}`)
       .then((response: AxiosResponse) => resolve(response.data))
       .catch((err: AxiosError) => reject(new ApiError(err)));
   });
