@@ -12,23 +12,20 @@ export const { styled, css } = createStyled({
       $warning: '#fad44f',
     },
     space: {
-      $1: '4px',
-      $2: '8px',
-      $3: '12px',
+      $0: '1px',
+      $1: '2px',
+      $2: '4px',
+      $3: '8px',
     },
     fontSizes: {
-      $1: '12px',
-      $2: '16px',
-      $3: '20px',
+      $1: '0.8rem',
+      $2: '1rem',
+      $3: '1.2rem',
     },
     radii: {
       $pill: '12px',
       $round: '120px',
     },
-  },
-  breakpoints: {
-    md: (rule: string) => `@media (min-width: 640px) { ${rule} }`,
-    lg: (rule: string) => `@media (min-width: 1024px) { ${rule} }`,
   },
   utils: {},
 });

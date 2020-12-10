@@ -2,38 +2,22 @@ import React from 'react';
 
 import { styled } from '@/stitches.config';
 
-const DayComponent = styled('div', {
+const DayWrapper = styled('div', {
+  width: '100%',
+  height: '100%',
   display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  width: '90%',
-  height: '90%',
-  color: '$white',
-  fontSize: '$3',
+  borderTop: 'solid $0 $black',
+});
+const DayNumber = styled('p', {
   margin: '$1',
-  cursor: 'pointer',
+  fontSize: '$3',
 });
 
-const Day = ({
-  text,
-  selected,
-  active,
-  onClick = () => {},
-}: {
-  text: number;
-  selected: boolean;
-  active: boolean;
-  onClick?: () => void;
-}) => {
+const Day = () => {
   return (
-    <DayComponent
-      css={{
-        background: !active ? '$white' : selected ? '$gray' : '$black',
-      }}
-      onClick={onClick}
-    >
-      {text}
-    </DayComponent>
+    <DayWrapper>
+      <DayNumber>1</DayNumber>
+    </DayWrapper>
   );
 };
 
