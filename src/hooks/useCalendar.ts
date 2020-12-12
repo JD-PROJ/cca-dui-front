@@ -1,4 +1,5 @@
 import { isAfter, isBefore } from 'date-fns';
+import { useMemo, useState } from 'react';
 
 export interface CalendarItem {
   date: Date;
@@ -7,11 +8,23 @@ export interface CalendarItem {
   active: boolean;
 }
 
-const isActive = (currentDate: Date, startDate: Date, endDate: Date) =>
-  !isBefore(currentDate, startDate) && !isAfter(currentDate, endDate);
+const isActive = (currentDate: Date, startDate: Date, endDate: Date) => {
+  if (!startDate && !endDate) return true;
+  if (startDate && !endDate) return !isBefore(currentDate, startDate);
+  if (!startDate && endDate) return !isAfter(currentDate, endDate);
 
-const createCalendar = (startDate: Date, endDate: Date) => {
-  const currentDate = new Date();
+  return !isBefore(currentDate, startDate) && !isAfter(currentDate, endDate);
+};
+
+const createCalendar = ({
+  currentDate,
+  startDate,
+  endDate,
+}: {
+  currentDate: Date;
+  startDate: Date;
+  endDate: Date;
+}) => {
   const month = currentDate.getMonth();
   const year = currentDate.getFullYear();
 
@@ -23,24 +36,25 @@ const createCalendar = (startDate: Date, endDate: Date) => {
   const nextMonthLength = new Date(year, nextMonth, 0).getDate();
   const prevMonthLength = new Date(year, prevMonth, 0).getDate();
 
-  let days = [];
+  let days: CalendarItem[] = [];
   for (let day = 1; day <= nextMonthLength; day += 1) {
     const date = new Date(year, month, day);
 
     days.push({
-      date,
       day,
+      date,
       selected: false,
       active: isActive(currentDate, startDate, endDate),
     });
   }
 
   for (let i = 0; i < firstDay; i += 1) {
-    const date = prevMonthLength - i;
-    const day = new Date(year, prevMonth, date);
+    const day = prevMonthLength - i;
+    const date = new Date(year, prevMonth, day);
+
     days.unshift({
-      date,
       day,
+      date,
       selected: false,
       active: isActive(currentDate, startDate, endDate),
     });
@@ -52,8 +66,8 @@ const createCalendar = (startDate: Date, endDate: Date) => {
     const date = new Date(year, nextMonth, day);
 
     days.push({
-      date,
       day,
+      date,
       selected: false,
       active: isActive(currentDate, startDate, endDate),
     });
@@ -61,3 +75,36 @@ const createCalendar = (startDate: Date, endDate: Date) => {
 
   return days;
 };
+
+const useCalendar = ({
+  startDate,
+  endDate,
+}: {
+  startDate: Date;
+  endDate: Date;
+}) => {
+  const [date, setDate] = useState(new Date());
+  const month = useMemo(() => date.getMonth(), [date]);
+  const year = useMemo(() => date.getFullYear(), [date]);
+
+  const prevMonth = () => {
+    const newMonth = month - 1 < 0 ? 11 : month - 1;
+    const newYear = newMonth === 11 ? year - 1 : year;
+    setDate(new Date(newYear, newMonth, 1));
+  };
+
+  const nextMonth = () => {
+    const newMonth = month + 1 > 11 ? 0 : month + 1;
+    const newYear = newMonth === 0 ? year + 1 : year;
+    setDate(new Date(newYear, newMonth, 1));
+  };
+
+  const days = useMemo(
+    () => createCalendar({ currentDate: date, startDate, endDate }),
+    [date, startDate, endDate],
+  );
+
+  return { date, days, prevMonth, nextMonth };
+};
+
+export default useCalendar;

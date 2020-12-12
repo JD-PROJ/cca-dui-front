@@ -12807,11 +12807,6 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
-react-calendar-hook@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/react-calendar-hook/-/react-calendar-hook-1.0.1.tgz#5c3aaf37886883f90d881ba69c8717ccd9ddb0ab"
-  integrity sha512-6fv0TrhzS1Nq6VOcgGLAObimF7ouDZfmV9nJ/ZWXeoGivEi022qtepsgSV0e7w1PgecnCYSrJSCb+xVo4A1nJw==
-
 react-clientside-effect@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/react-clientside-effect/-/react-clientside-effect-1.2.2.tgz#6212fb0e07b204e714581dd51992603d1accc837"
