@@ -1,9 +1,17 @@
 import React from 'react';
 
 import useCalendar from '@/hooks/useCalendar';
+import { styled } from '@/stitches.config';
+
+import Day from './Day';
+
+const CalendarBodyWrapper = styled('div', {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(7, 1fr)',
+});
 
 const Calendar = () => {
-  const { date, days, prevMonth, nextMonth } = useCalendar({
+  const { day, month, year, days, prevMonth, nextMonth } = useCalendar({
     startDate: new Date(2020, 11, 15),
     endDate: new Date(2021, 1, 21),
   });
@@ -11,13 +19,13 @@ const Calendar = () => {
   return (
     <div>
       <button onClick={prevMonth}>prev</button>
-      {`${date}`}
+      {`${day}.${month}.${year}`}
       <button onClick={nextMonth}>next</button>
-      <ul>
+      <CalendarBodyWrapper>
         {days.map(d => (
-          <li>{d.day}</li>
+          <Day day={d.day} />
         ))}
-      </ul>
+      </CalendarBodyWrapper>
     </div>
   );
 };

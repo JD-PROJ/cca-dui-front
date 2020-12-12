@@ -9,10 +9,6 @@ export interface CalendarItem {
 }
 
 const isActive = (currentDate: Date, startDate: Date, endDate: Date) => {
-  if (!startDate && !endDate) return true;
-  if (startDate && !endDate) return !isBefore(currentDate, startDate);
-  if (!startDate && endDate) return !isAfter(currentDate, endDate);
-
   return !isBefore(currentDate, startDate) && !isAfter(currentDate, endDate);
 };
 
@@ -44,7 +40,7 @@ const createCalendar = ({
       day,
       date,
       selected: false,
-      active: isActive(currentDate, startDate, endDate),
+      active: isActive(date, startDate, endDate),
     });
   }
 
@@ -56,7 +52,7 @@ const createCalendar = ({
       day,
       date,
       selected: false,
-      active: isActive(currentDate, startDate, endDate),
+      active: isActive(date, startDate, endDate),
     });
   }
 
@@ -69,7 +65,7 @@ const createCalendar = ({
       day,
       date,
       selected: false,
-      active: isActive(currentDate, startDate, endDate),
+      active: isActive(date, startDate, endDate),
     });
   }
 
@@ -84,6 +80,7 @@ const useCalendar = ({
   endDate: Date;
 }) => {
   const [date, setDate] = useState(new Date());
+  const day = useMemo(() => date.getDate(), [date]);
   const month = useMemo(() => date.getMonth(), [date]);
   const year = useMemo(() => date.getFullYear(), [date]);
 
@@ -104,7 +101,7 @@ const useCalendar = ({
     [date, startDate, endDate],
   );
 
-  return { date, days, prevMonth, nextMonth };
+  return { day, month: month + 1, year, days, prevMonth, nextMonth };
 };
 
 export default useCalendar;
