@@ -4,11 +4,15 @@ import { CalendarItem } from '@/hooks/useCalendar';
 import { styled } from '@/stitches.config';
 
 const DayWrapper = styled('div', {
-  width: '100%',
-  height: '100%',
-  border: 'solid 1px white',
+  width: '4.5ch',
+  height: '4.5ch',
   position: 'relative',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: '50%',
 });
+
 const DayConfirmation = styled('div', {
   width: '100%',
   height: '100%',
@@ -16,14 +20,13 @@ const DayConfirmation = styled('div', {
   position: 'absolute',
   alignItems: 'center',
   justifyContent: 'center',
-  fontSize: '1.5rem',
+  fontSize: '1rem',
   left: 0,
   top: 0,
 });
 const DayNumber = styled('p', {
   margin: '$1',
-  color: 'white',
-  fontSize: '$3',
+  fontSize: '$1',
 });
 
 const Day = ({
@@ -35,7 +38,8 @@ const Day = ({
   return (
     <DayWrapper
       css={{
-        background: !active ? '$white' : selected ? '$primary' : '$success',
+        color: !active ? '$blue20' : selected ? '$gray' : '$blue50',
+        backgroundColor: !active || selected ? 'white' : '$blue20',
       }}
     >
       <DayNumber>{day}</DayNumber>

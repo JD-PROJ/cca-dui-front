@@ -6,7 +6,7 @@ import { RootState } from '..';
 import { createAsyncAction } from '../helper';
 
 const name = 'authentication';
-const authenticationInitialState = { authenticated: false };
+const authenticationInitialState = { authenticated: true };
 
 const slice = createSlice({
   name,

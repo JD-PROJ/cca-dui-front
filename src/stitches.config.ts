@@ -10,6 +10,10 @@ export const { styled, css } = createStyled({
       $primary: '#ff3333',
       $success: '#3cb371',
       $warning: '#fad44f',
+      $blue00: '#e9f8fa',
+      $blue20: '#99dee9',
+      $blue50: '#22b8cf',
+      $blue80: '#006d7e',
     },
     space: {
       $0: '1px',
@@ -23,7 +27,7 @@ export const { styled, css } = createStyled({
       $3: '1.2rem',
     },
     radii: {
-      $pill: '12px',
+      $pill: '32px',
       $round: '120px',
     },
   },

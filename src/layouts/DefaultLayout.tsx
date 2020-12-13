@@ -6,21 +6,23 @@ import { LayoutProps } from './types';
 
 const DefaultLayoutWrapper = styled('div', {
   width: '100%',
+  height: '100%',
 });
 
 const ContentWrapper = styled('div', {
-  marginBottom: '48px',
+  height: 'calc(100% - 48px)',
   display: 'flex',
+  marginTop: '48px',
   flexDirection: 'column',
   alignItems: 'center',
 });
 
 const TabNavigationWrapper = styled('div', {
   position: 'fixed',
-  bottom: 0,
+  top: 0,
   width: '100%',
   height: '48px',
-  backgroundColor: '#f5f5dc',
+  backgroundColor: '$blue00',
 });
 
 const DefaultLayout = ({ children }: LayoutProps) => {

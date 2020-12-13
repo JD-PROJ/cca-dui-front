@@ -17,21 +17,25 @@ const CalendarNavWrapper = styled('div', {
   display: 'flex',
   width: '100%',
   height: '5vh',
-  justifyContent: 'space-between',
+  justifyContent: 'space-around',
   alignItems: 'center',
-  marginBottom: '$3',
+  borderRadius: '$pill',
+  paddingTop: '$3',
+  paddingBottom: '$3',
+  backgroundColor: '$blue50',
 });
 
 const CalendarNavText = styled('div', {
-  fontSize: '$3',
+  fontSize: '$2',
+  color: '$white',
 });
 
 const CalendarNavButton = styled('div', {
   display: 'inline-block',
   width: '1rem',
   height: '1rem',
-  borderTop: '2px solid black',
-  borderRight: '2px solid black',
+  borderTop: '2px solid $white',
+  borderRight: '2px solid $white',
   variants: {
     direction: {
       prev: {
@@ -48,13 +52,17 @@ const CalendarHeadWrapper = styled('div', {
   display: 'grid',
   gridTemplateColumns: 'repeat(7, 1fr)',
   width: '100%',
+  alignItems: 'center',
+  justifyItems: 'center',
 });
 
 const CalendarBodyWrapper = styled('div', {
   display: 'grid',
   gridTemplateColumns: 'repeat(7, 1fr)',
-  height: '50vh',
   width: '100%',
+  alignItems: 'center',
+  justifyItems: 'center',
+  rowGap: '$2',
 });
 
 const getSeasonEmoji = (month: number) => {
@@ -81,12 +89,12 @@ const getSeasonEmoji = (month: number) => {
   }
 };
 
-const DaysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
+const DaysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
 const Calendar = () => {
   const { month, year, days, prevMonth, nextMonth } = useCalendar({
-    startDate: new Date(2020, 11, 31),
-    endDate: new Date(2022, 0, 31),
+    startDate: new Date(2020, 11, 12),
+    endDate: new Date(2021, 2, 14),
   });
 
   return (
@@ -110,12 +118,12 @@ const Calendar = () => {
         ))}
       </CalendarHeadWrapper>
       <CalendarBodyWrapper>
-        {days.map(({ day, selected, active, confirmation }, index) => (
+        {days.map(({ day, selected, active, confirmation, date }, index) => (
           <Day
             day={day}
-            selected={selected}
+            selected={day % 13 === 2}
             active={active}
-            confirmation={confirmation}
+            confirmation={date.toString() === new Date(2021, 1, 20).toString()}
           />
         ))}
       </CalendarBodyWrapper>
