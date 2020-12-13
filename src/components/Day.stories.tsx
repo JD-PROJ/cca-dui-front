@@ -14,4 +14,16 @@ export default {
   ],
 };
 
-export const Basic = () => <Day active={false} day={12} selected={false} />;
+export const InActive = () => (
+  <Day active={false} day={12} selected={false} confirmation={false} />
+);
+export const NonSelected = () => (
+  <Day active={true} day={12} selected={false} confirmation={false} />
+);
+export const Selected = () => (
+  <Day active={true} day={12} selected={true} confirmation={false} />
+);
+
+export const Confirmation = () => (
+  <Day active={true} day={12} selected={false} confirmation={true} />
+);

@@ -6,6 +6,7 @@ export interface CalendarItem {
   day: number;
   selected: boolean;
   active: boolean;
+  confirmation: boolean;
 }
 
 const isActive = (currentDate: Date, startDate: Date, endDate: Date) => {
@@ -40,6 +41,7 @@ const createCalendar = ({
       day,
       date,
       selected: false,
+      confirmation: false,
       active: isActive(date, startDate, endDate),
     });
   }
@@ -52,6 +54,7 @@ const createCalendar = ({
       day,
       date,
       selected: false,
+      confirmation: false,
       active: isActive(date, startDate, endDate),
     });
   }
@@ -65,6 +68,7 @@ const createCalendar = ({
       day,
       date,
       selected: false,
+      confirmation: false,
       active: isActive(date, startDate, endDate),
     });
   }
