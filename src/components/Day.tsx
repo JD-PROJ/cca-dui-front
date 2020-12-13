@@ -17,7 +17,7 @@ const DayNumber = styled('p', {
 const Day = ({ day, selected, active }: Omit<CalendarItem, 'date'>) => {
   return (
     <DayWrapper
-      css={{ background: !selected ? '$black' : !active ? 'white' : '$gray' }}
+      css={{ background: !active ? '$white' : selected ? '$gray' : '$black' }}
     >
       <DayNumber>{day}</DayNumber>
     </DayWrapper>

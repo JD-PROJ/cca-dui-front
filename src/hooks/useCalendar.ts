@@ -1,4 +1,4 @@
-import { isAfter, isBefore } from 'date-fns';
+import { isAfter, isBefore, lastDayOfMonth } from 'date-fns';
 import { useMemo, useState } from 'react';
 
 export interface CalendarItem {
@@ -87,13 +87,20 @@ const useCalendar = ({
   const prevMonth = () => {
     const newMonth = month - 1 < 0 ? 11 : month - 1;
     const newYear = newMonth === 11 ? year - 1 : year;
-    setDate(new Date(newYear, newMonth, 1));
+    const newDate = new Date(newYear, newMonth, 1);
+
+    if (isBefore(lastDayOfMonth(newDate), startDate)) return;
+
+    setDate(newDate);
   };
 
   const nextMonth = () => {
     const newMonth = month + 1 > 11 ? 0 : month + 1;
     const newYear = newMonth === 0 ? year + 1 : year;
-    setDate(new Date(newYear, newMonth, 1));
+    const newDate = new Date(newYear, newMonth, 1);
+    if (isAfter(newDate, endDate)) return;
+
+    setDate(newDate);
   };
 
   const days = useMemo(

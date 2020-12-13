@@ -14,4 +14,4 @@ export default {
   ],
 };
 
-export const Basic = () => <Day />;
+export const Basic = () => <Day active={false} day={12} selected={false} />;
