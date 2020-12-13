@@ -19,6 +19,7 @@ const CalendarNavWrapper = styled('div', {
   height: '5vh',
   justifyContent: 'space-between',
   alignItems: 'center',
+  marginBottom: '$3',
 });
 
 const CalendarNavText = styled('div', {

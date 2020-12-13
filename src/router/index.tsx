@@ -8,6 +8,7 @@ import { DefaultLayout, FullSizeLayout } from '@/layouts';
 import PrivateRoute from './PrivateRoute';
 
 const Login = lazy(() => import('@/pages/Login'));
+const Schedule = lazy(() => import('@/pages/Schedule'));
 const Main = lazy(() => import('@/pages/Main'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
@@ -28,6 +29,12 @@ const App = () => {
                     exact
                     path="/"
                     component={Main}
+                  />
+                  <PrivateRoute
+                    isAuthenticated={authenticated}
+                    exact
+                    path="/schedule/:id"
+                    component={Schedule}
                   />
                 </Switch>
               </DefaultLayout>
