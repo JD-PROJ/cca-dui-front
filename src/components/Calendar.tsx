@@ -69,7 +69,7 @@ const getSeasonEmoji = (month: number) => {
   }
 };
 
-const DaysOfWeek = ['월', '화', '수', '목', '금', '토', '일'];
+const DaysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
 
 const Calendar = () => {
   const { month, year, days, prevMonth, nextMonth } = useCalendar({
