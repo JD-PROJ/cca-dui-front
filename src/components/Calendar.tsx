@@ -27,10 +27,21 @@ const CalendarNavText = styled('div', {
 });
 
 const CalendarNavButton = styled('div', {
-  backgroundColor: 'white',
-  color: '$black',
-  border: '1px solid $black',
-  padding: '$3',
+  display: 'inline-block',
+  width: '1rem',
+  height: '1rem',
+  borderTop: '2px solid black',
+  borderRight: '2px solid black',
+  variants: {
+    direction: {
+      prev: {
+        transform: 'rotate(-135deg)',
+      },
+      next: {
+        transform: 'rotate(45deg)',
+      },
+    },
+  },
 });
 
 const CalendarHeadWrapper = styled('div', {
@@ -81,11 +92,17 @@ const Calendar = () => {
   return (
     <CalendarWrapper>
       <CalendarNavWrapper>
-        <CalendarNavButton onClick={prevMonth}>이전 달</CalendarNavButton>
+        <CalendarNavButton
+          onClick={prevMonth}
+          direction="prev"
+        ></CalendarNavButton>
         <CalendarNavText>{`${year}년 ${month}월 ${getSeasonEmoji(
           month,
         )}`}</CalendarNavText>
-        <CalendarNavButton onClick={nextMonth}>다음 달</CalendarNavButton>
+        <CalendarNavButton
+          onClick={nextMonth}
+          direction="next"
+        ></CalendarNavButton>
       </CalendarNavWrapper>
       <CalendarHeadWrapper>
         {DaysOfWeek.map(d => (
