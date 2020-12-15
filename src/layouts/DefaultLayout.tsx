@@ -11,12 +11,12 @@ const DefaultLayoutWrapper = styled('div', {
 
 const ContentWrapper = styled('div', {
   width: '100%',
-  paddingTop: '48px',
+  paddingBottom: '48px',
 });
 
 const TabNavigationWrapper = styled('div', {
   position: 'fixed',
-  top: 0,
+  bottom: 0,
   width: '100%',
   height: '48px',
   backgroundColor: '$blue00',

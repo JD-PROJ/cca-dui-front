@@ -118,12 +118,13 @@ const Calendar = () => {
         ))}
       </CalendarHeadWrapper>
       <CalendarBodyWrapper>
-        {days.map(({ day, selected, active, confirmation, date }, index) => (
+        {days.map(({ day, selected, active, confirmation, date }) => (
           <Day
+            key={date.getTime()}
             day={day}
-            selected={day % 13 === 2}
+            selected={selected}
             active={active}
-            confirmation={date.toString() === new Date(2021, 1, 20).toString()}
+            confirmation={confirmation}
           />
         ))}
       </CalendarBodyWrapper>
