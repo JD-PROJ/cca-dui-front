@@ -10,11 +10,8 @@ const DefaultLayoutWrapper = styled('div', {
 });
 
 const ContentWrapper = styled('div', {
-  height: 'calc(100% - 48px)',
-  display: 'flex',
-  marginTop: '48px',
-  flexDirection: 'column',
-  alignItems: 'center',
+  width: '100%',
+  paddingTop: '48px',
 });
 
 const TabNavigationWrapper = styled('div', {

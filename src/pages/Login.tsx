@@ -13,7 +13,7 @@ const LoginPageWrapper = styled('div', {
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  height: '90%',
+  height: '100%',
 });
 
 const KaKaoImage = styled('img', {
