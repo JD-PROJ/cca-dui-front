@@ -93,8 +93,8 @@ const DaysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
 const Calendar = () => {
   const { month, year, days, prevMonth, nextMonth } = useCalendar({
-    startDate: new Date(2020, 11, 12),
-    endDate: new Date(2021, 2, 14),
+    startDate: new Date(2021, 0, 12),
+    endDate: new Date(2021, 3, 14),
   });
 
   return (
@@ -120,7 +120,6 @@ const Calendar = () => {
       <CalendarBodyWrapper>
         {days.map(({ day, selected, active, confirmation, date }) => (
           <Day
-            key={date.getTime()}
             day={day}
             selected={selected}
             active={active}

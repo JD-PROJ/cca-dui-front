@@ -20,6 +20,7 @@ export const { styled, css } = createStyled({
       $1: '2px',
       $2: '4px',
       $3: '8px',
+      $4: '16px',
     },
     fontSizes: {
       $1: '0.8rem',

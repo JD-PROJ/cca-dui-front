@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Calendar from '@/components/Calendar';
+import DayInfo from '@/components/DayInfo';
+import ScheduleInfo from '@/components/ScheduleInfo';
 import { styled } from '@/stitches.config';
 
 const MainWrapper = styled('div', {
@@ -19,7 +21,19 @@ const Row = styled('div', {
 const Main = () => (
   <MainWrapper>
     <Row>
+      <ScheduleInfo />
+    </Row>
+    <Row>
       <Calendar />
+    </Row>
+    <Row>
+      <DayInfo
+        year={2021}
+        month={12}
+        day={24}
+        selected={true}
+        users={['철수', '영희']}
+      />
     </Row>
   </MainWrapper>
 );
