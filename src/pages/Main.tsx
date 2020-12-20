@@ -18,11 +18,15 @@ const Row = styled('div', {
   paddingBottom: '$3',
 });
 
+const WideRow = styled('div', {
+  width: '100%',
+});
+
 const Main = () => (
   <MainWrapper>
-    <Row>
+    <WideRow>
       <ScheduleInfo />
-    </Row>
+    </WideRow>
     <Row>
       <Calendar />
     </Row>

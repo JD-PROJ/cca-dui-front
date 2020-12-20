@@ -94,7 +94,7 @@ const DaysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 const Calendar = () => {
   const { month, year, days, prevMonth, nextMonth } = useCalendar({
     startDate: new Date(2021, 0, 12),
-    endDate: new Date(2021, 3, 14),
+    endDate: new Date(2021, 2, 16),
   });
 
   return (

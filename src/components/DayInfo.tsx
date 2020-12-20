@@ -19,7 +19,7 @@ const DayDescription = styled('div', {
 const DayToggleButton = styled('button', {
   backgroundColor: '$blue50',
   borderStyle: 'none',
-  padding: '$3',
+  padding: '$3 $4 $3 $4',
   borderRadius: '$pill',
   color: '$white',
 });

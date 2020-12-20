@@ -5,10 +5,9 @@ import { styled } from '@/stitches.config';
 const ScheduleInfoWrapper = styled('div', {
   display: 'flex',
   flexDirection: 'column',
-  border: 'solid 1px $blue50',
+  border: 'solid 2px $blue20',
   alignItems: 'center',
   padding: '$3',
-  borderRadius: '$pill',
   color: '$black',
 });
 
